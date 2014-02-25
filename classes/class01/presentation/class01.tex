@@ -2,6 +2,7 @@
 
 \usetheme{Warsaw}
 
+\usepackage{amsthm}
 \usepackage{verbatim}
 \usepackage{xcolor}
 \usepackage{listings}
@@ -13,6 +14,9 @@
 \usepackage[bulgarian]{babel}
 \usepackage{hyperref}
 \usepackage{graphicx}
+
+\newtheorem{prob}{Задача}
+\newtheorem{solv}{Решение}
 
 \title{Въведение в Базите данни. Основни понятия и концепции.}
 \author{Валентин Гелински}
@@ -118,6 +122,28 @@
       Обекти, които притежават всички свойства на даден базов клас обекти, но имат допълнителни свои атрибути.
     \end{block}
     \includegraphics[width=100px]{img/subclass}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Задача}
+      \begin{prob}
+        Направете ER диаграма на база от данни за университети, която съдържа:\\
+        - Име на университета и град в който се намира;\\
+        - Номер и име на факултетите в даден университет;\\
+        - Списък с преподавателите в даден факултет;\\
+        - Декан на факултета;\\
+        - Водени учебни предмети;\\
+        - Списък със студенти, записали даден учебен предмет;\\
+        - Списък на задочниците и фирмата, в която работят.
+      \end{prob}
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{Решение}
+    \begin{solv}
+      \includegraphics[width=100px]{img/problem1}
+    \end{solv}
   \end{frame}
   
   
