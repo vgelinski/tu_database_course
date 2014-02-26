@@ -25,6 +25,11 @@
 
 
 \begin{document}
+
+\lstset{language=SQL,
+       keywordstyle=\color{red},
+       numbers=left}
+
   \begin{frame} 
     \titlepage
   \end{frame}
@@ -145,7 +150,65 @@
       \includegraphics[width=100px]{img/problem1}
     \end{solv}
   \end{frame}
-  
+
+\begin{frame}[fragile]
+\frametitle{Създаване на база данни}
+\begin{block}{}
+\begin{lstlisting}
+      CREATE DATABASE <name>;
+\end{lstlisting}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Създаване на таблица}
+\begin{block}{}
+\begin{lstlisting}
+    CREATE TABLE <tablename>
+    (
+        <columnname> <datatype> [<other>],
+        <columnname> <datatype> [<other>],
+        ...
+        <columnname> <datatype> [<other>]
+    )
+\end{lstlisting}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Пример}
+\begin{block}{}
+\begin{lstlisting}
+	CREATE TABLE `university`.`students` (
+		`firstname` TINYTEXT NOT NULL ,
+		`middlename` TINYTEXT NULL ,
+		`lastname` TINYTEXT NOT NULL ,
+		`phone` VARCHAR( 32 ) NULL ,
+		`address` TEXT NULL ,
+		`faknum` BIGINT( 12 ) NOT NULL ,
+		`id` INT NOT NULL AUTO_INCREMENT ,
+		PRIMARY KEY ( `id` )
+	) ENGINE = MYISAM ;
+\end{lstlisting}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Промяна на таблици}
+\begin{block}{}
+\begin{lstlisting}
+ALTER TABLE `university`.`zadochnici`
+ADD `sruspeh` FLOAT( 3 ) NULL;
+
+ALTER TABLE `university`.`zadochnici`
+DROP `sruspeh`;
+
+ALTER TABLE `university`.`students`
+CHANGE `sruspeh` `sr_uspeh` FLOAT( 3 ) NULL;
+\end{lstlisting}
+\end{block}
+\end{frame}
+ 
   
 \end{document}
 
