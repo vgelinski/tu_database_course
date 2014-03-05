@@ -17,5 +17,43 @@ CREATE TABLE IF NOT EXISTS tb_faculties(
   FOREIGN KEY(university_id) REFERENCES tb_universities(id),/* Създаваме колоната като външен ключ, заради условието
                                                                че факултет не може да съществува без университет */
   number INT,
-  name VARCHAR(240)
+  name VARCHAR(240),
+  dean INT UNIQUE # Уникално, заради връзката 1:1
+);
+
+CREATE TABLE IF NOT EXISTS tb_lectors(
+  id INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY(id),
+  faculty_id INT,
+  name VARCHAR(240),
+  egn INT(10)
+);
+
+CREATE TABLE IF NOT EXISTS tb_subjects(
+  id INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY(id),
+  head_master INT,# Преподавателя, който води предмета
+  name VARCHAR(240),
+  code INT
+);
+
+CREATE TABLE IF NOT EXISTS tb_subjects_x_students(
+  subject INT,
+  student INT
+);
+
+CREATE TABLE IF NOT EXISTS tb_students(
+  id INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY(id),
+  name VARCHAR(240),
+  fac_number INT(12)
+);
+
+CREATE TABLE IF NOT EXISTS tb_emplyeed_students(
+  id INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY(id),
+  student_id INT NOT NULL,
+  INDEX stud_id(student_id),
+  FOREIGN KEY(student_id) REFERENCES tb_students(id),
+  company VARCHAR(240)
 );
