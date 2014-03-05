@@ -1,0 +1,21 @@
+CREATE DATABASE IF NOT EXISTS university_example CHARACTER SET = utf8;
+
+USE unicersity_example;
+
+CREATE TABLE IF NOT EXISTS tb_universities(
+  id INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY(id),
+  name VARCHAR(240) NOT NULL,
+  city VARCHAR(240) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS tb_faculties(
+  id INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY(id),
+  university_id INT NOT NULL,
+  INDEX uni_id(university_id),# Изисква го външния ключ
+  FOREIGN KEY(university_id) REFERENCES tb_universities(id),/* Създаваме колоната като външен ключ, заради условието
+                                                               че факултет не може да съществува без университет */
+  number INT,
+  name VARCHAR(240)
+);
