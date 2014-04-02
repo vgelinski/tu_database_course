@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS university_example CHARACTER SET = utf8;
 
-USE unicersity_example;
+USE university_example;
 
 CREATE TABLE IF NOT EXISTS tb_universities(
   id INT NOT NULL AUTO_INCREMENT,
